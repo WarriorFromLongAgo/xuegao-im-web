@@ -2,28 +2,18 @@ module.exports = {
     devServer: {
         disableHostCheck: true,
         proxy: {
-            '/xuegao': {
-                target: 'http://127.0.0.1:12000',
+            // 代理 websocket 请求
+            '/ws': {
+                // 目标服务器的 ip 端口
+                target: 'http://localhost:6767',
+                // 是否要代理 websocket 节点
+                ws: true,
+                // 需要虚拟主机站点
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/xuegao': ''
-                },
-                ws: false
+                    '^/ws': ''
+                }
             }
-            //   '/ws': {
-            //     target: 'http://localhost:6767',
-            //     ws: true,
-            //     changeOrigin: true,
-            //     pathRewrite:{
-            //         '^/ws':''
-            //     }
-            //   },
-            //   '/oss': {
-            //     target: 'http://192.168.42.131:9000',
-            //     changeOrigin: true,
-            //     pathRewrite:{
-            //         '^/oss':'/oss'
-            //     }
         }
     }
 }
