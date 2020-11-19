@@ -8,6 +8,7 @@ module.exports = {
                 pathRewrite: {
                     '^/xuegao': ''
                 },
+                ws: false
             }
             //   '/ws': {
             //     target: 'http://localhost:6767',

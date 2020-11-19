@@ -1,28 +1,10 @@
 import axios from 'axios'
-// import router from '../router/index'
-
-// let token;
 
 // http://localhost:8080/xuegao/sys/v1/signIn
 const instance = axios.create({
     // baseURL: '/xuegao',
     timeout: 10000
 });
-
-// 请求的拦截器
-// instance.interceptors.request.use(function (config) {
-//   if (token) {
-//     config.headers.authorization = "berarer " + token;
-//   } else {
-//     token = sessionStorage.getItem("token");
-//     if (token) {
-//       config.headers.authorization = "berarer " + token;
-//     }
-//   }
-//   return config;
-// }, function (error) {
-//   return Promise.reject(error);
-// });
 
 // 添加请求拦截器
 axios.interceptors.request.use(config => {
@@ -47,4 +29,3 @@ instance.interceptors.response.use(function (response) {
 });
 
 export default instance;
-
